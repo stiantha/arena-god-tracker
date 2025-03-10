@@ -1,0 +1,316 @@
+#root {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Progress */
+
+/* Achievement Card Styles */
+.achievement-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-width: 300px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s;
+  margin: 0 auto 20px auto; /* Center the card horizontally */
+  top: 2rem;
+}
+
+.champion-dashboard {
+  position: relative;
+  min-height: 400px;
+}
+
+.achievement-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.achievement-icon {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.achievement-icon img {
+  width: 100px;
+  height: 100px;
+}
+
+.achievement-title {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.achievement-name {
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.achievement-rank {
+  color: #a0a0a0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.achievement-rarity {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.achievement-description {
+  margin: 10px 0;
+  color: #ccc;
+}
+
+.achievement-progress-container {
+  width: 100%;
+  height: 25px;
+  background-color: #333;
+  border-radius: 4px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.achievement-progress-bar {
+  height: 100%;
+  background-color: #2a9df4;
+  transition: width 0.3s ease;
+}
+
+.achievement-progress-text {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.achievement-status {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.status-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.player-level {
+  display: flex;
+  align-items: center;
+}
+
+.player-avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.arena-god-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.master-badge {
+  background-color: #8c13fe;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Controls */
+
+.reset-button {
+  border-radius: 4px;
+  border: 1px solid #ffffff00;
+  background-color: transparent;
+  color: #f44336;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1em;
+}
+
+.reset-button:hover {
+  color: white;
+  border: red 1px solid;
+}
+
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search-input {
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 1rem;
+}
+
+.filter-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-button, .sort-button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-button:hover, .sort-button:hover {
+  background-color: #333;
+}
+
+.filter-button.active, .sort-button.active {
+  background-color: #2a9df4;
+  color: white;
+  border-color: #2a9df4;
+}
+
+.sort-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sort-options span {
+  color: #aaa;
+}
+
+/* Champions */
+.champions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  min-height: 300px;
+}
+
+.champion-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  height: 120px; /* Fixed height to prevent layout shifts */
+}
+
+.champion-card:hover {
+  transform: scale(1.05);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.checkmark-overlay {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #098888;
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.champion-card.completed img {
+  opacity: 0.3;
+}
+
+/* Loading state */
+.loading-skeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.champion-card-skeleton {
+  height: 120px;
+  background: linear-gradient(90deg, #222 25%, #333 50%, #222 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .champion-dashboard {
+    padding-left: 0;
+  }
+  
+  .achievement-card {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
