@@ -1,0 +1,126 @@
+.filter-controls {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  gap: 1rem;
+  margin-bottom: 2em;
+}
+
+.filter-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  color: #ddd;
+  cursor: pointer;
+  gap: 8px;
+  flex-grow: 0;
+}
+
+/* Show / Hide */
+.filter-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.filter-checkbox:checked {
+  background-color: #056e7c;
+  border-color: #056e7c;
+}
+
+.filter-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 6px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.filter-checkbox:hover {
+  border-color: #056e7c;
+}
+
+/* Sorting */
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-select-button {
+  padding: 10px;
+  padding-right: 35px;
+  background-color: transparent;
+  color: #ddd;
+  cursor: pointer;
+  min-width: 110px;
+  min-height: 40px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s;
+}
+
+.custom-select-button:hover {
+  color: #fff;
+}
+
+.select-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #ddd;
+}
+
+.custom-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #222;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  min-width: 120px;
+  opacity: 95%;
+}
+
+.custom-select-option {
+  cursor: pointer;
+  color: #ddd;
+  transition: background-color 0.2s;
+  text-align: left;
+  z-index: -1;
+  padding: 10px;
+}
+
+.custom-select-option:hover {
+  background-color: #333;
+}
+
+.custom-select-option.selected {
+  background-color: #333;
+}
+

@@ -1,0 +1,117 @@
+@media (min-width: 2200px) {
+  div.achievement-card {
+    margin-top: 18em;
+  }
+}
+@media (max-width: 1950px) {
+  div.achievement-card {
+    margin-top: 12%;
+  }
+}
+
+@media (max-width: 1268px) {
+  .filter-button,
+  .sort-button,
+  .sort-options span {
+    display: none;
+  }
+
+  .filter-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+  .layout {
+    padding-left: 0;
+  }
+
+  .achievement-card {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 880px) {
+  .achievement-card {
+    padding: 10px;
+    max-width: 300px;
+  }
+
+  .achievement-icon img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .achievement-name {
+    font-size: 1.2rem;
+  }
+
+  .achievement-rank,
+  .achievement-rarity {
+    font-size: 0.8rem;
+  }
+
+  .achievement-progress-container {
+    height: 20px;
+  }
+
+  button.custom-select-button {
+    display: none;
+  }
+
+  .filter-label {
+    flex-basis: auto;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
+@media (max-width: 510px) {
+  #root {
+    width: 100%;
+  }
+
+  .champions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 5px;
+    grid-auto-rows: 80px;
+  }
+
+  .champion-card {
+    height: 80px;
+  }
+
+  .champion-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  div.action-buttons-container {
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 430px) {
+  p.achievement-name {
+    font-size: 12px;
+  }
+  p.achievement-rank {
+    font-size: 10px;
+  }
+
+  div.achievement-description {
+    font-size: 11px;
+  }
+
+  p.achievement-rarity {
+    font-size:10px;
+  }
+}
