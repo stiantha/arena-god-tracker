@@ -16,7 +16,6 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
 }) => {
   const downloadExcel = async () => {
     try {
-      // Get data from local storage
       const storedData = localStorage.getItem(localStorageKey);
       if (!storedData) {
         alert("No data to export");
@@ -24,12 +23,9 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
       }
 
       const completedChampionIds = JSON.parse(storedData);
-
-      // Create a new workbook
       const workbook = new ExcelJS.Workbook();
       const worksheet = workbook.addWorksheet("Champions");
 
-      // Add headers
       worksheet.columns = [
         { header: "Champion", key: "champion", width: 20 },
         { header: "Value", key: "value", width: 10 },

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Champion } from '../../types';
+import React from "react";
+import { Champion } from "../../types";
 
 interface ChampionsProps {
   champions: Champion[];
@@ -8,11 +8,11 @@ interface ChampionsProps {
   isLoading: boolean;
 }
 
-const Champions: React.FC<ChampionsProps> = ({ 
-  champions, 
-  completedChampionIds, 
+const Champions: React.FC<ChampionsProps> = ({
+  champions,
+  completedChampionIds,
   onToggleCompletion,
-  isLoading
+  isLoading,
 }) => {
   if (isLoading) {
     return (
@@ -25,24 +25,26 @@ const Champions: React.FC<ChampionsProps> = ({
   }
 
   return (
-    <div className="champions-grid">
-      {champions.map((champion) => (
-        <div
-          key={champion.id}
-          className={`champion-card ${
-            completedChampionIds.includes(champion.id) ? "completed" : ""
-          }`}
-          onClick={() => onToggleCompletion(champion.id)}
-          style={{ visibility: "visible", display: "flex" }}
-        >
-          <div className="image-container">
-            <img src={champion.image} alt={champion.name} />
-            {completedChampionIds.includes(champion.id) && (
-              <div className="checkmark-overlay">✓</div>
-            )}
+    <div className="champions-grid-wrapper">
+      <div className="champions-grid">
+        {champions.map((champion) => (
+          <div
+            key={champion.id}
+            className={`champion-card ${
+              completedChampionIds.includes(champion.id) ? "completed" : ""
+            }`}
+            onClick={() => onToggleCompletion(champion.id)}
+            style={{ visibility: "visible", display: "flex" }}
+          >
+            <div className="image-container">
+              <img src={champion.image} alt={champion.name} />
+              {completedChampionIds.includes(champion.id) && (
+                <div className="checkmark-overlay">✓</div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

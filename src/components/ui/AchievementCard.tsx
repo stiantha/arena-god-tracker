@@ -23,12 +23,12 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
 }) => {
   return (
     <div className="achievement-card">
+      <div className="achievement-header">
       <div className="achievement-icon">
         <img src={icon} alt="Achievement Icon" />
       </div>
-      <div className="achievement-header">
         <div className="achievement-title">
-          <h2 className="achievement-name">{title}</h2>
+          <p className="achievement-name">{title}</p>
           <p className="achievement-rank">{rank}</p>
           <p className="achievement-rarity">{rarity}</p>
         </div>
@@ -40,12 +40,12 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
         <div
           className="achievement-progress-bar"
           style={{ width: `${progressPercentage}%` }}
-        ></div>
+        />
+        <span className="achievement-progress-text">
+          {progress} / {total}
+        </span>
       </div>
 
-      <div className="achievement-progress-text">
-        {progress} / {total}
-      </div>
 
       <div className="arena-god-label">
         <span>📜 Arena God</span>
