@@ -1,0 +1,75 @@
+@media (max-width: 1200px) {
+    .champion-dashboard {
+      padding-left: 0;
+    }
+    
+    .achievement-card {
+      position: relative;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+  }
+  
+  @media (max-width: 1268px) {
+    .filter-button,
+    .sort-button,
+    .sort-options span {
+      display: none;
+    }
+    
+    .controls-container {
+      flex-direction: row;
+      justify-content: center;
+    }
+    
+    .search-container {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    #root {
+      width: 95%;
+      padding: 0.5rem;
+    }
+    
+    .champions-grid {
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+      gap: 8px;
+    }
+    
+    .champion-card {
+      height: 70px;
+    }
+  }
+  
+  @media (max-width: 880px) {
+    .achievement-card {
+      padding: 10px;
+      max-width: 300px;
+    }
+    
+    .achievement-icon img {
+      width: 80px;
+      height: 80px;
+    }
+    
+    .achievement-name {
+      font-size: 1.2rem;
+    }
+    
+    .achievement-rank,
+    .achievement-rarity {
+      font-size: 0.8rem;
+    }
+    
+    .achievement-progress-container {
+      height: 20px;
+    }
+  }
+  
+  @media (prefers-color-scheme: light) {
+    a:hover {
+      color: #747bff;
+    }
+  }

@@ -1,0 +1,20 @@
+/* src/styles/layout.css */
+.champion-dashboard {
+  position: relative;
+  min-height: 400px;
+}
+
+.champions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  min-height: 300px;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+

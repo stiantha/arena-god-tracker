@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 
-// Define a generic type parameter T for the value type
 function useLocalStorage<T>(key: string, initialValue: T): [T, React.Dispatch<React.SetStateAction<T>>] {
   const [value, setValue] = useState<T>(() => {
     try {
