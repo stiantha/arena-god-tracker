@@ -140,7 +140,7 @@ const ChampionDashboard: React.FC = () => {
         icon={adaptToAllSituations}
         title="Adapt to all situations"
         rank="MASTER"
-        rarity="0.1% of players earned"
+        rarity="0.1% of players have this"
         description="Place first in Arena games with different champions"
         progress={completedChampions.length}
         total={champions.length}
