@@ -1,9 +1,11 @@
 import React from "react";
-import { Users } from 'lucide-react';
+import { Users } from "lucide-react";
 import { useChampionContext } from "./hooks/useChampionContext";
 import Achievement from "./components/ui/Achievement";
 import Filter from "./components/ui/Filter";
 import ChampionGrid from "./components/ui/ChampionsGrid";
+import KofiBanner from "./components/ui/Ko-fi";
+import SignatureBanner from "./components/ui/Signature";
 
 interface LayoutProps {
   achievementIcon: string;
@@ -18,21 +20,32 @@ const Layout: React.FC<LayoutProps> = ({
   achievementTitle,
   achievementRank,
   achievementRarity,
-  achievementDescription
+  achievementDescription,
 }) => {
-  const { progress, progressPercentage } = useChampionContext(); {/*champions*/}
-  const total = 60
-  
+  const { progress, progressPercentage } = useChampionContext();
+  {
+    /*champions*/
+  }
+  const total = 60;
+  const kofiUrl = "https://ko-fi.com/stiantha";
+
   return (
     <div className="champion-dashboard">
+      <KofiBanner kofiUrl={kofiUrl} />
+      <SignatureBanner />
       <Achievement
         icon={achievementIcon}
         title={achievementTitle}
         rank={achievementRank}
-        rarity={<><Users size={15} style={{marginRight: 5}} />{achievementRarity}</>}
+        rarity={
+          <>
+            <Users size={15} style={{ marginRight: 5 }} />
+            {achievementRarity}
+          </>
+        }
         description={achievementDescription}
         progress={progress}
-        total={total}//{champions.length}
+        total={total} //{champions.length}
         progressPercentage={progressPercentage}
       />
 
