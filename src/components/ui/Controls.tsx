@@ -2,7 +2,7 @@
 import React from "react";
 import { useChampionContext } from "../../hooks/useChampionContext";
 import { useDownload } from "../../hooks/useDownload";
-import { Download, RefreshCw } from 'lucide-react';
+import { Download, Trash2 } from 'lucide-react';
 
 const Controls: React.FC = () => {
   const { resetProgress } = useChampionContext();
@@ -15,7 +15,7 @@ const Controls: React.FC = () => {
         onClick={resetProgress}
         title="Reset Progress"
       >
-        <RefreshCw size={22}/>
+        <Trash2 size={22}/>
       </button>
       <button
         className="action-button download-button"
