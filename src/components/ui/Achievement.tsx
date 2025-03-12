@@ -1,4 +1,6 @@
 import React from "react";
+import Controls from "./Controls";
+
 interface AchievementProps {
   icon: string;
   title: string;
@@ -47,8 +49,9 @@ const Achievement: React.FC<AchievementProps> = ({
         </span>
       </div>
 
-      <div className="achievement-arena-god">
+      <div className="achievement-footer">
         <span>📜 Arena God</span>
+        <Controls />
       </div>
     </div>
   );

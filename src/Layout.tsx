@@ -4,7 +4,6 @@ import { useChampionContext } from "./hooks/useChampionContext";
 import Achievement from "./components/ui/Achievement";
 import Filter from "./components/ui/Filter";
 import ChampionGrid from "./components/ui/ChampionsGrid";
-import Controls from "./components/ui/Controls";
 
 interface LayoutProps {
   achievementIcon: string;
@@ -38,7 +37,6 @@ const Layout: React.FC<LayoutProps> = ({
       />
 
       <Filter />
-      <Controls />
       <ChampionGrid />
     </div>
   );
