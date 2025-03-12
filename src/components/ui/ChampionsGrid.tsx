@@ -1,19 +1,15 @@
+// components/ui/ChampionGrid.tsx
 import React from "react";
-import { Champion } from "../../types";
+import { useChampionContext } from "../../hooks/useChampionContext";
 
-interface ChampionsProps {
-  champions: Champion[];
-  completedChampionIds: number[];
-  onToggleCompletion: (id: number) => void;
-  isLoading: boolean;
-}
+const ChampionGrid: React.FC = () => {
+  const {
+    filteredChampions,
+    completedChampionIds,
+    toggleChampionCompletion,
+    isLoading,
+  } = useChampionContext();
 
-const Champions: React.FC<ChampionsProps> = ({
-  champions,
-  completedChampionIds,
-  onToggleCompletion,
-  isLoading,
-}) => {
   if (isLoading) {
     return (
       <div className="loading-skeleton">
@@ -27,13 +23,13 @@ const Champions: React.FC<ChampionsProps> = ({
   return (
     <div className="champions-grid-wrapper">
       <div className="champions-grid">
-        {champions.map((champion) => (
+        {filteredChampions.map((champion) => (
           <div
             key={champion.id}
             className={`champion-card ${
               completedChampionIds.includes(champion.id) ? "completed" : ""
             }`}
-            onClick={() => onToggleCompletion(champion.id)}
+            onClick={() => toggleChampionCompletion(champion.id)}
             style={{ visibility: "visible", display: "flex" }}
           >
             <div className="image-container">
@@ -49,4 +45,4 @@ const Champions: React.FC<ChampionsProps> = ({
   );
 };
 
-export default Champions;
+export default ChampionGrid;

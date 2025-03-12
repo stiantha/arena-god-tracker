@@ -1,77 +1,106 @@
-import React, { ChangeEvent } from "react";
+// components/ui/Filter.tsx
+import React, { useState, useRef, useEffect } from "react";
+import { useChampionContext } from "../../hooks/useChampionContext";
+import { SortOption } from "../../types";
+import { ListFilter } from "lucide-react";
 
-type SortOption = "alphabetical" | "completed" | "remaining";
+const Filter: React.FC = () => {
+  const {
+    searchTerm,
+    handleSearchChange,
+    hideCompleted,
+    toggleHideCompleted,
+    hidePending,
+    toggleHidePending,
+    sortOption,
+    handleSortChange
+  } = useChampionContext();
+  
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-interface FilterProps {
-  searchTerm: string;
-  onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  hideCompleted: boolean;
-  onToggleHideCompleted: () => void;
-  hidePending: boolean;
-  onToggleHidePending: () => void;
-  sortOption: SortOption;
-  onSortChange: (option: SortOption) => void;
-}
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
-const Filter: React.FC<FilterProps> = ({
-  searchTerm,
-  onSearchChange,
-  hideCompleted,
-  onToggleHideCompleted,
-  hidePending,
-  onToggleHidePending,
-  sortOption,
-  onSortChange,
-}) => {
+  const sortOptions = [
+    { value: 'name-asc', label: 'A - Z' },
+    { value: 'name-desc', label: 'Z - A' },
+    { value: 'pending', label: 'Pending' },
+    { value: 'completed', label: 'Completed' }
+  ];
+  
+  const getLabel = () => {
+    const option = sortOptions.find(opt => opt.value === sortOption);
+    return option ? option.label : '';
+  };
+
   return (
-    <div className="filter-container">
-      <button
-        className={hideCompleted ? "filter-button active" : "filter-button"}
-        onClick={onToggleHideCompleted}
-      >
-        {hideCompleted ? "Show Completed" : "Hide Completed"}
-      </button>
-
-      <button
-        className={hidePending ? "filter-button active" : "filter-button"}
-        onClick={onToggleHidePending}
-      >
-        {hidePending ? "Show Pending" : "Hide Pending"}
-      </button>
-
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search champions..."
-          value={searchTerm}
-          onChange={onSearchChange}
-          className="search-input"
-        />
+    <div className="filter-controls">
+      <input
+        type="text"
+        placeholder="Search champions..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+        className="search-input"
+      />
+      
+      <div className="filter-options">
+        <label className="filter-label">
+          <input
+            type="checkbox"
+            checked={hideCompleted}
+            onChange={toggleHideCompleted}
+            className="filter-checkbox"
+          />
+          Hide Completed
+        </label>
+        
+        <label className="filter-label">
+          <input
+            type="checkbox"
+            checked={hidePending}
+            onChange={toggleHidePending}
+            className="filter-checkbox"
+          />
+          Hide Pending
+        </label>
+        
+        <div className="custom-select-wrapper" ref={dropdownRef}>
+          <button 
+            className="custom-select-button" 
+            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+          >
+            {getLabel()}
+            <ListFilter size={18} className="select-icon" />
+          </button>
+          
+          {isOpen && (
+            <div className="custom-select-dropdown">
+              {sortOptions.map((option) => (
+                <div 
+                  key={option.value}
+                  className={`custom-select-option ${sortOption === option.value ? 'selected' : ''}`}
+                  onClick={() => {
+                    handleSortChange(option.value as SortOption);
+                    setIsOpen(false);
+                  }}
+                >
+                  {option.label}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
-      <button
-        className={
-          sortOption === "alphabetical" ? "sort-button active" : "sort-button"
-        }
-        onClick={() => onSortChange("alphabetical")}
-      >
-        A - Z
-      </button>
-      <button
-        className={
-          sortOption === "completed" ? "sort-button active" : "sort-button"
-        }
-        onClick={() => onSortChange("completed")}
-      >
-        Completed
-      </button>
-      <button
-        className={
-          sortOption === "remaining" ? "sort-button active" : "sort-button"
-        }
-        onClick={() => onSortChange("remaining")}
-      >
-        Pending
-      </button>
     </div>
   );
 };

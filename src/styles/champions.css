@@ -28,3 +28,19 @@
     justify-content: center;
     font-weight: bold;
   }
+
+  .champion-dashboard {
+    position: relative;
+    min-height: 400px;
+  }
+  
+  .champions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+    grid-auto-rows: 120px;
+  }
+  .champions-grid-wrapper {
+    min-height: 500px;
+    position: relative;
+  }

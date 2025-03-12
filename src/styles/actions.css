@@ -1,0 +1,24 @@
+.reset-button,
+.download-button,
+.donate-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 2.1em 0 2.1em 0;
+  outline: none;
+}
+
+.reset-button:hover {
+  color: #f44336;
+}
+
+.download-button:hover {
+  color: #2a9df4;
+}
+
+.action-buttons-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }

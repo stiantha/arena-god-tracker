@@ -1,54 +1,21 @@
 // components/ChampionDashboard.tsx
 import React from "react";
 import adaptToAllSituations from "../assets/adapt_to_all_situations.png";
+import { ChampionProvider } from "../context/ChampionProvider";
 import Layout from "../Layout";
-import { useChampions } from "../hooks/useChampions";
 
-const Champions: React.FC = () => {
-  const {
-    champions,
-    searchTerm,
-    hideCompleted,
-    hidePending,
-    sortOption,
-    completedChampions,
-    isLoading,
-    progressPercentage,
-    filteredChampions,
-    toggleChampionCompletion,
-    handleSearchChange,
-    handleSortChange,
-    toggleHideCompleted,
-    toggleHidePending,
-    resetProgress
-  } = useChampions();
-
+const ChampionDashboard: React.FC = () => {
   return (
-    <Layout
-      achievementIcon={adaptToAllSituations}
-      achievementTitle="Adapt to all situations"
-      achievementRank="MASTER"
-      achievementDescription="Place first in Arena games with different champions"
-      progress={completedChampions.length}
-      total={champions.length}
-      progressPercentage={progressPercentage}
-      localStorageKey="completed-champions"
-      champions={champions}
-      onResetProgress={resetProgress}
-      searchTerm={searchTerm}
-      onSearchChange={handleSearchChange}
-      hideCompleted={hideCompleted}
-      onToggleHideCompleted={toggleHideCompleted}
-      hidePending={hidePending}
-      onToggleHidePending={toggleHidePending}
-      sortOption={sortOption}
-      onSortChange={handleSortChange}
-      filteredChampions={filteredChampions}
-      completedChampionIds={completedChampions}
-      onToggleCompletion={toggleChampionCompletion}
-      isLoading={isLoading}
-    />
+    <ChampionProvider localStorageKey="completed-champions">
+      <Layout
+        achievementIcon={adaptToAllSituations}
+        achievementTitle="Adapt to all situations"
+        achievementRank="MASTER"
+        achievementRarity="0.1% of players have this"
+        achievementDescription="Place first in Arena games with different champions"
+      />
+    </ChampionProvider>
   );
 };
 
-export default Champions;
+export default ChampionDashboard;
