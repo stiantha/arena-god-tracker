@@ -44,6 +44,7 @@ const Filter: React.FC = () => {
   return (
     <div className="filter-controls">
       <input
+        id="search-champions"
         type="text"
         placeholder="Search champions..."
         value={searchTerm}
@@ -54,6 +55,7 @@ const Filter: React.FC = () => {
       <div className="filter-options">
         <label className="filter-label">
           <input
+            id="hide-completed"
             type="checkbox"
             checked={hideCompleted}
             onChange={toggleHideCompleted}
@@ -64,6 +66,7 @@ const Filter: React.FC = () => {
         
         <label className="filter-label">
           <input
+            id="hide-pending"
             type="checkbox"
             checked={hidePending}
             onChange={toggleHidePending}
