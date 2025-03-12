@@ -5,7 +5,7 @@
   padding: 20px;
   margin: 20px auto;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid #333333; 
+  border: 1px solid #333333;
   max-width: 450px;
   width: 100%;
   display: flex;
@@ -22,7 +22,7 @@
 }
 
 .achievement-icon img {
-  width: 64px; 
+  width: 64px;
   height: 64px;
   border-radius: 50%;
   margin-right: 15px;
@@ -64,8 +64,8 @@
   display: flex;
   align-items: center;
   font-size: 0.8rem;
-  color: #caa80e;
-  margin-top: 1em;
+  color: #b8b8b8;
+  margin-top: 0.2em;
 }
 .master-badge {
   background-color: #8c13fe;
@@ -98,10 +98,15 @@
   margin-top: 1em;
   color: #aaa;
 }
-
-.achievement-footer span {
-  align-items: start;
-  text-align: left;
+.achievement-footer p {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.achievement-footer p svg {
+  color: #d3d2d2;
 }
 
 .achievement-progress-text {

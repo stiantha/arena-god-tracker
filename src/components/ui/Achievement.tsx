@@ -1,5 +1,6 @@
 import React from "react";
 import Controls from "./Controls";
+import { ScrollText } from "lucide-react";
 
 interface AchievementProps {
   icon: string;
@@ -50,7 +51,7 @@ const Achievement: React.FC<AchievementProps> = ({
       </div>
 
       <div className="achievement-footer">
-        <span>📜 Arena God</span>
+        <p><ScrollText size={20}/> Arena God</p>
         <Controls />
       </div>
     </div>
