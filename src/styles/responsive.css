@@ -25,43 +25,42 @@
 }
 
 @media (max-width: 880px) {
-    .achievement-card {
-      padding: 10px;
-      max-width: 300px;
-    }
-  
-    .achievement-icon img {
-      width: 80px;
-      height: 80px;
-    }
-  
-    .achievement-name {
-      font-size: 1.2rem;
-    }
-  
-    .achievement-rank,
-    .achievement-rarity {
-      font-size: 0.8rem;
-    }
-  
-    .achievement-progress-container {
-      height: 20px;
-    }
+  .achievement-card {
+    padding: 10px;
+    max-width: 300px;
+  }
 
-      button.custom-select-button {
-        display: none;
-      }
-      
-      .filter-label {
-        flex-basis: auto;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        margin:auto
-      }
-      
-    }
-    
+  .achievement-icon img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .achievement-name {
+    font-size: 1.2rem;
+  }
+
+  .achievement-rank,
+  .achievement-rarity {
+    font-size: 0.8rem;
+  }
+
+  .achievement-progress-container {
+    height: 20px;
+  }
+
+  button.custom-select-button {
+    display: none;
+  }
+
+  .filter-label {
+    flex-basis: auto;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+  }
+}
+
 @media (max-width: 510px) {
   #root {
     width: 100%;
@@ -90,10 +89,18 @@
 }
 
 @media (max-width: 430px) {
-  p.achievement-name{
-  font-size: 12px;
-}
-p.achievement-rank{
-  font-size: 10px;
-}
+  p.achievement-name {
+    font-size: 12px;
+  }
+  p.achievement-rank {
+    font-size: 10px;
+  }
+
+  div.achievement-description {
+    font-size: 11px;
+  }
+
+  p.achievement-rarity {
+    font-size:10px;
+  }
 }
