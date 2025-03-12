@@ -99,9 +99,10 @@
 
 .achievement-progress-text {
   font-size: 1rem;
-  color: #ddd;
+  color: #ffffff;
   white-space: nowrap;
   z-index: 1;
+  font-weight: bold;
 }
 
 .achievement-progress-container {

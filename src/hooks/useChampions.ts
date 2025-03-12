@@ -108,10 +108,8 @@ export const useChampions = (localStorageKey: string): ChampionContextType => {
     }, [champions, searchTerm, hideCompleted, hidePending, completedChampionIds, sortOption]);
 
     const progressPercentage = useMemo(() => {
-        return champions.length > 0
-            ? (completedChampionIds.length / champions.length) * 100
-            : 0;
-    }, [champions.length, completedChampionIds.length]);
+        return completedChampionIds.length / 60 * 100;
+      }, [completedChampionIds.length]);
 
     return {
         champions,

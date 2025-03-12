@@ -21,7 +21,8 @@ const Layout: React.FC<LayoutProps> = ({
   achievementRarity,
   achievementDescription
 }) => {
-  const { progress, champions, progressPercentage } = useChampionContext();
+  const { progress, progressPercentage } = useChampionContext(); {/*champions*/}
+  const total = 60
   
   return (
     <div className="champion-dashboard">
@@ -32,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({
         rarity={<><Users size={15} style={{marginRight: 5}} />{achievementRarity}</>}
         description={achievementDescription}
         progress={progress}
-        total={champions.length}
+        total={total}//{champions.length}
         progressPercentage={progressPercentage}
       />
 
