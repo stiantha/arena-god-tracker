@@ -1,31 +1,69 @@
-.reset-button { color: #f44336; }
-.download-button { color: #0e85d4; }
-.donate-button { color: #36f48b; }
-
-.achievement-name {
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin: 0;
+.reset-button:hover { 
+  color: #f44336; 
 }
 
-.achievement-rank {
-  color: #a0a0a0;
-  font-size: 1rem;
-  margin: 0;
+.download-button:hover { 
+  color: #2a9df4; 
+}
+/** Buttons */
+.reset-button,
+.download-button,
+.donate-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1em;
+  outline: none;
 }
 
-.achievement-rarity {
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 5px;
-}
-
-/* State Indicators */
-.master-badge {
-  background-color: #8c13fe;
-  color: white;
-  padding: 2px 8px;
+.search-input {
+  width: 95%;
+  padding: 10px;
   border-radius: 4px;
-  font-size: 0.8rem;
+  border: none;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.filter-button,
+.sort-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #ddd;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 150px;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.filter-button:hover,
+.sort-button:hover {
+  background-color: #333;
+}
+
+.filter-button.active,
+.sort-button.active {
+  background-color: #056e7c;
+  color: rgb(255, 255, 255);
+  border: 1px transparent solid;
+}
+
+.action-buttons-container {
+  display: flex;
+  justify-content:end;
+  width: 100%;
+}
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }

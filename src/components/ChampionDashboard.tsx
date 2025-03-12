@@ -4,19 +4,20 @@ import { Champion } from "../types";
 import championService from "../api";
 import adaptToAllSituations from "../assets/adapt_to_all_situations.png";
 
-import AchievementCard from "./ui/AchievementCard";
-import ControlPanel from "./ui/ControlPanel";
+import Achievement from "./ui/Achievement";
+import Filter from "./ui/Filter";
 import Champions from "./ui/Champions";
-import ActionButtons from "./ui/ActionButtons";
+import Controls from "./ui/Controls";
+import { Users } from 'lucide-react';
 
-type SortOption = "alphabetical" | "completed" | "uncompleted";
+type SortOption = "alphabetical" | "completed" | "remaining";
 
 const ChampionDashboard: React.FC = () => {
   // State management
   const [champions, setChampions] = useState<Champion[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [hideCompleted, setHideCompleted] = useState<boolean>(false);
-  const [hideUncompleted, setHideUncompleted] = useState<boolean>(false);
+  const [hidePending, setHidePending] = useState<boolean>(false);
   const [sortOption, setSortOption] = useState<SortOption>("alphabetical");
   const [completedChampions, setCompletedChampions] = useLocalStorage<number[]>(
     "completed-champions",
@@ -62,7 +63,7 @@ const ChampionDashboard: React.FC = () => {
       );
     }
 
-    if (hideUncompleted) {
+    if (hidePending) {
       result = result.filter(
         (champion) => completedChampions.includes(champion.id)
       );
@@ -81,7 +82,7 @@ const ChampionDashboard: React.FC = () => {
             : 1;
         });
         break;
-      case "uncompleted":
+      case "remaining":
         result.sort((a, b) => {
           const aCompleted = completedChampions.includes(a.id);
           const bCompleted = completedChampions.includes(b.id);
@@ -99,7 +100,7 @@ const ChampionDashboard: React.FC = () => {
     }
 
     return result;
-  }, [searchTerm, champions, completedChampions, hideCompleted, hideUncompleted, sortOption]);
+  }, [searchTerm, champions, completedChampions, hideCompleted, hidePending, sortOption]);
 
   // Event handlers
   const toggleChampionCompletion = (championId: number): void => {
@@ -120,46 +121,46 @@ const ChampionDashboard: React.FC = () => {
 
   const toggleHideCompleted = (): void => {
     setHideCompleted(!hideCompleted);
-    if (hideUncompleted) setHideUncompleted(false); // Ensure both filters aren't active simultaneously
+    //if (hidePending) setHidePending(false);
   };
 
-  const toggleHideUncompleted = (): void => {
-    setHideUncompleted(!hideUncompleted);
-    if (hideCompleted) setHideCompleted(false); // Ensure both filters aren't active simultaneously
+  const toggleHidePending = (): void => {
+    setHidePending(!hidePending);
+    //if (hideCompleted) setHideCompleted(false);
   };
 
   const resetProgress = (): void => {
-    if (window.confirm("Reset ALL your progress? This cannot be undone.")) {
+    if (window.confirm("Reset ALL progress? This cannot be undone.")) {
       setCompletedChampions([]);
     }
   };
 
   return (
     <div className="champion-dashboard">
-      <AchievementCard
+      <Achievement
         icon={adaptToAllSituations}
         title="Adapt to all situations"
         rank="MASTER"
-        rarity="0.1% of players have this"
+        rarity={<><Users size={15} />  0.1% of players have this</>}
         description="Place first in Arena games with different champions"
         progress={completedChampions.length}
         total={champions.length}
         progressPercentage={progressPercentage}
       />
 
-      <ActionButtons
+      <Controls
         localStorageKey="completed-champions"
         champions={champions}
         onResetProgress={resetProgress}
       />
 
-      <ControlPanel
+      <Filter
         searchTerm={searchTerm}
         onSearchChange={handleSearchChange}
         hideCompleted={hideCompleted}
         onToggleHideCompleted={toggleHideCompleted}
-        hideUncompleted={hideUncompleted}
-        onToggleHideUncompleted={toggleHideUncompleted}
+        hidePending={hidePending}
+        onToggleHidePending={toggleHidePending}
         sortOption={sortOption}
         onSortChange={handleSortChange}
       />

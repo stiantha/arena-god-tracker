@@ -1,17 +1,16 @@
-import React from 'react';
-
-interface AchievementCardProps {
+import React from "react";
+interface AchievementProps {
   icon: string;
   title: string;
   rank: string;
-  rarity: string;
+  rarity: string | React.ReactNode;
   description: string;
   progress: number;
   total: number;
   progressPercentage: number;
 }
 
-const AchievementCard: React.FC<AchievementCardProps> = ({
+const Achievement: React.FC<AchievementProps> = ({
   icon,
   title,
   rank,
@@ -24,13 +23,15 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
   return (
     <div className="achievement-card">
       <div className="achievement-header">
-      <div className="achievement-icon">
-        <img src={icon} alt="Achievement Icon" />
-      </div>
+        <div className="achievement-icon">
+          <img src={icon} alt="Achievement Icon" />
+        </div>
         <div className="achievement-title">
           <p className="achievement-name">{title}</p>
           <p className="achievement-rank">{rank}</p>
-          <p className="achievement-rarity">{rarity}</p>
+          <p className="achievement-rarity">
+            {typeof rarity === "string" ? rarity : rarity}
+          </p>
         </div>
       </div>
 
@@ -46,12 +47,11 @@ const AchievementCard: React.FC<AchievementCardProps> = ({
         </span>
       </div>
 
-
-      <div className="arena-god-label">
+      <div className="achievement-arena-god">
         <span>📜 Arena God</span>
       </div>
     </div>
   );
 };
 
-export default AchievementCard;
+export default Achievement;

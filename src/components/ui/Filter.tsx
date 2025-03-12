@@ -1,25 +1,25 @@
 import React, { ChangeEvent } from "react";
 
-type SortOption = "alphabetical" | "completed" | "uncompleted";
+type SortOption = "alphabetical" | "completed" | "remaining";
 
-interface ControlPanelProps {
+interface FilterProps {
   searchTerm: string;
   onSearchChange: (e: ChangeEvent<HTMLInputElement>) => void;
   hideCompleted: boolean;
   onToggleHideCompleted: () => void;
-  hideUncompleted: boolean;
-  onToggleHideUncompleted: () => void;
+  hidePending: boolean;
+  onToggleHidePending: () => void;
   sortOption: SortOption;
   onSortChange: (option: SortOption) => void;
 }
 
-const ControlPanel: React.FC<ControlPanelProps> = ({
+const Filter: React.FC<FilterProps> = ({
   searchTerm,
   onSearchChange,
   hideCompleted,
   onToggleHideCompleted,
-  hideUncompleted,
-  onToggleHideUncompleted,
+  hidePending,
+  onToggleHidePending,
   sortOption,
   onSortChange,
 }) => {
@@ -42,10 +42,10 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       </button>
 
       <button
-        className={hideUncompleted ? "filter-button active" : "filter-button"}
-        onClick={onToggleHideUncompleted}
+        className={hidePending ? "filter-button active" : "filter-button"}
+        onClick={onToggleHidePending}
       >
-        {hideUncompleted ? "Show Uncompleted" : "Hide Uncompleted"}
+        {hidePending ? "Show Pending" : "Hide Pending"}
       </button>
 
       <div className="search-container" style={{ flex: 1 }}>
@@ -63,7 +63,7 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
         }
         onClick={() => onSortChange("alphabetical")}
       >
-        A-Z
+        A - Z
       </button>
       <button
         className={
@@ -75,14 +75,14 @@ const ControlPanel: React.FC<ControlPanelProps> = ({
       </button>
       <button
         className={
-          sortOption === "uncompleted" ? "sort-button active" : "sort-button"
+          sortOption === "remaining" ? "sort-button active" : "sort-button"
         }
-        onClick={() => onSortChange("uncompleted")}
+        onClick={() => onSortChange("remaining")}
       >
-        Uncompleted
+        Pending
       </button>
     </div>
   );
 };
 
-export default ControlPanel;
+export default Filter;

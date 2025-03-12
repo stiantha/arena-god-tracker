@@ -1,15 +1,15 @@
-// ActionButtons.tsx
 import React from "react";
 import { Champion } from "../../types";
 import ExcelJS from "exceljs";
+import { RefreshCw, Download } from 'lucide-react';
 
-interface ActionButtonsProps {
+interface ControlsProps {
   localStorageKey: string;
   champions: Champion[];
   onResetProgress: () => void;
 }
 
-const ActionButtons: React.FC<ActionButtonsProps> = ({
+const Controls: React.FC<ControlsProps> = ({
   localStorageKey,
   champions,
   onResetProgress,
@@ -61,30 +61,19 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
   }; */
 
   return (
-    <div
-      className="action-buttons-container"
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        gap: "10px",
-        justifyContent: "center",
-        margin: "15px 0",
-      }}
-    >
+    <div className="action-buttons-container">
       <button
         className="action-button reset-button"
         onClick={onResetProgress}
-        title="Delete saved data"
       >
-        Reset Progress
+        <RefreshCw size={22}/>
       </button>
       <button
         className="action-button download-button"
         onClick={downloadExcel}
-        title="Download progress to .xlsx file (Excel)" 
-      >
-        Download Progress
-      </button>
+        >
+        <Download size={22}/>
+        </button>
       {/*       <button
         className="action-button donate-button"
         onClick={openDonationPage}
@@ -96,4 +85,4 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
   );
 };
 
-export default ActionButtons;
+export default Controls;
