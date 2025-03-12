@@ -9,25 +9,20 @@
   outline: none;
 }
 
-.reset-button {
-  color: #f45236;
+.reset-button,
+.download-button {
+  color: #ffffff;
+}
+.reset-button:hover {
+  color: #f44336;
 }
 
-.download-button {
+.download-button:hover {
   color: #2a9df4;
 }
-
-.reset-button:hover {
-    color: #ffffff;
-  }
-  
-  .download-button:hover {
-    color: #ffffff;
-  }
-
 .action-buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-  }
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
