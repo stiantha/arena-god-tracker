@@ -1,5 +1,5 @@
 // App.tsx
-import ChampionDashboard from './components/ChampionDashboard';
+import ChampionDashboard from './components/Champions';
 import './App.css';
 
 const App: React.FC = () => {

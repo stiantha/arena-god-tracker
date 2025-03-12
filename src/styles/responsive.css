@@ -5,7 +5,7 @@
     display: none;
   }
 
-  .controls-container {
+  .filter-container {
     flex-direction: row;
     justify-content: center;
   }

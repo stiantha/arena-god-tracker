@@ -1,18 +1,11 @@
 import { useState, useEffect, ChangeEvent, useMemo } from "react";
-import useLocalStorage from "../hooks/useLocalStorage";
+import useLocalStorage from "./useLocalStorage";
 import { Champion } from "../types";
 import championService from "../api";
-import adaptToAllSituations from "../assets/adapt_to_all_situations.png";
 
-import Achievement from "./ui/Achievement";
-import Filter from "./ui/Filter";
-import Champions from "./ui/Champions";
-import Controls from "./ui/Controls";
-import { Users } from 'lucide-react';
+export type SortOption = "alphabetical" | "completed" | "remaining";
 
-type SortOption = "alphabetical" | "completed" | "remaining";
-
-const ChampionDashboard: React.FC = () => {
+export const useChampions = () => {
   // State management
   const [champions, setChampions] = useState<Champion[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -24,6 +17,7 @@ const ChampionDashboard: React.FC = () => {
     []
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  
   const progressPercentage =
     champions.length > 0
       ? (completedChampions.length / champions.length) * 100
@@ -121,12 +115,10 @@ const ChampionDashboard: React.FC = () => {
 
   const toggleHideCompleted = (): void => {
     setHideCompleted(!hideCompleted);
-    //if (hidePending) setHidePending(false);
   };
 
   const toggleHidePending = (): void => {
     setHidePending(!hidePending);
-    //if (hideCompleted) setHideCompleted(false);
   };
 
   const resetProgress = (): void => {
@@ -135,44 +127,24 @@ const ChampionDashboard: React.FC = () => {
     }
   };
 
-  return (
-    <div className="champion-dashboard">
-      <Achievement
-        icon={adaptToAllSituations}
-        title="Adapt to all situations"
-        rank="MASTER"
-        rarity={<><Users size={15} />  0.1% of players have this</>}
-        description="Place first in Arena games with different champions"
-        progress={completedChampions.length}
-        total={champions.length}
-        progressPercentage={progressPercentage}
-      />
-
-      <Controls
-        localStorageKey="completed-champions"
-        champions={champions}
-        onResetProgress={resetProgress}
-      />
-
-      <Filter
-        searchTerm={searchTerm}
-        onSearchChange={handleSearchChange}
-        hideCompleted={hideCompleted}
-        onToggleHideCompleted={toggleHideCompleted}
-        hidePending={hidePending}
-        onToggleHidePending={toggleHidePending}
-        sortOption={sortOption}
-        onSortChange={handleSortChange}
-      />
-
-      <Champions
-        champions={filteredChampions}
-        completedChampionIds={completedChampions}
-        onToggleCompletion={toggleChampionCompletion}
-        isLoading={isLoading}
-      />
-    </div>
-  );
+  return {
+    // State
+    champions,
+    searchTerm,
+    hideCompleted,
+    hidePending,
+    sortOption,
+    completedChampions,
+    isLoading,
+    progressPercentage,
+    filteredChampions,
+    
+    // Event handlers
+    toggleChampionCompletion,
+    handleSearchChange,
+    handleSortChange,
+    toggleHideCompleted,
+    toggleHidePending,
+    resetProgress
+  };
 };
-
-export default ChampionDashboard;

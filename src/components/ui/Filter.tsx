@@ -24,16 +24,7 @@ const Filter: React.FC<FilterProps> = ({
   onSortChange,
 }) => {
   return (
-    <div
-      className="controls-container"
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "10px",
-        width: "100%",
-      }}
-    >
+    <div className="filter-container">
       <button
         className={hideCompleted ? "filter-button active" : "filter-button"}
         onClick={onToggleHideCompleted}
@@ -48,7 +39,7 @@ const Filter: React.FC<FilterProps> = ({
         {hidePending ? "Show Pending" : "Hide Pending"}
       </button>
 
-      <div className="search-container" style={{ flex: 1 }}>
+      <div className="search-container">
         <input
           type="text"
           placeholder="Search champions..."
