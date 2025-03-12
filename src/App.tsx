@@ -1,4 +1,3 @@
-// App.tsx
 import ChampionDashboard from './components/Champions';
 import './App.css';
 

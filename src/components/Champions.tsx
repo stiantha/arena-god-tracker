@@ -1,4 +1,3 @@
-// components/ChampionDashboard.tsx
 import React from "react";
 import adaptToAllSituations from "../assets/adapt_to_all_situations.png";
 import { ChampionProvider } from "../context/ChampionProvider";

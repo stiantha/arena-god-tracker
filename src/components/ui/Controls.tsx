@@ -1,4 +1,3 @@
-// components/ui/Controls.tsx
 import React from "react";
 import { useChampionContext } from "../../hooks/useChampionContext";
 import { useDownload } from "../../hooks/useDownload";

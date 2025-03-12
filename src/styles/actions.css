@@ -5,20 +5,29 @@
   background-color: transparent;
   cursor: pointer;
   transition: all 0.2s;
-  margin: 2.1em 0 2.1em 0;
+  margin: 2.2em 0 2.2em 0;
   outline: none;
 }
 
-.reset-button:hover {
-  color: #f44336;
+.reset-button {
+  color: #f45236;
 }
 
-.download-button:hover {
+.download-button {
   color: #2a9df4;
 }
+
+.reset-button:hover {
+    color: #ffffff;
+  }
+  
+  .download-button:hover {
+    color: #ffffff;
+  }
 
 .action-buttons-container {
     display: flex;
     justify-content: center;
+    gap: 20px;
     width: 100%;
   }

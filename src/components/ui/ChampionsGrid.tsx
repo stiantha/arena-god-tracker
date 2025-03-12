@@ -1,4 +1,3 @@
-// components/ui/ChampionGrid.tsx
 import React from "react";
 import { useChampionContext } from "../../hooks/useChampionContext";
 

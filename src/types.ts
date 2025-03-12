@@ -6,7 +6,7 @@ export interface Champion {
   image: string;
 }
 
-export type SortOption = 'name-asc' | 'name-desc' | 'completed' | 'remaining';
+export type SortOption = 'name-asc' | 'name-desc' | 'completed' | 'pending';
 
 export interface ChampionContextType {
   champions: Champion[];

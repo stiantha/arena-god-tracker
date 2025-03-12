@@ -1,4 +1,3 @@
-// hooks/useExcelDownload.ts
 import { useCallback } from 'react';
 import { useChampionContext } from './useChampionContext';
 import ExcelJS from 'exceljs';
@@ -21,7 +20,6 @@ export const useDownload = () => {
         { header: "Value", key: "value", width: 10 },
       ];
 
-      // Add all champions with 0 or 1 value
       champions.forEach((champion) => {
         const isCompleted = completedChampionIds.includes(champion.id);
         worksheet.addRow({

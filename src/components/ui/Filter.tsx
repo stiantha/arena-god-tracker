@@ -1,4 +1,3 @@
-// components/ui/Filter.tsx
 import React, { useState, useRef, useEffect } from "react";
 import { useChampionContext } from "../../hooks/useChampionContext";
 import { SortOption } from "../../types";

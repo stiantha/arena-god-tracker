@@ -15,7 +15,6 @@ export const useChampions = (localStorageKey: string): ChampionContextType => {
     const [sortOption, setSortOption] = useState<SortOption>('name-asc');
     const [isLoading, setIsLoading] = useState(true);
 
-    // Load champions data
     useEffect(() => {
         const fetchChampions = async () => {
             try {
@@ -32,7 +31,6 @@ export const useChampions = (localStorageKey: string): ChampionContextType => {
         fetchChampions();
     }, []);
 
-    // Event handlers with useCallback
     const toggleChampionCompletion = useCallback((championId: number) => {
         setCompletedChampionIds(prev => {
             if (prev.includes(championId)) {
@@ -66,18 +64,16 @@ export const useChampions = (localStorageKey: string): ChampionContextType => {
     }, [setCompletedChampionIds]);
 
 
-    // Memoized calculations
     const filteredChampions = useMemo(() => {
         let filtered = [...champions];
 
-        // Apply search filter
         if (searchTerm) {
             filtered = filtered.filter(champion =>
                 champion.name.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }
 
-        // Apply completion filters
+
         if (hideCompleted) {
             filtered = filtered.filter(champion => !completedChampionIds.includes(champion.id));
         }
@@ -86,20 +82,27 @@ export const useChampions = (localStorageKey: string): ChampionContextType => {
             filtered = filtered.filter(champion => completedChampionIds.includes(champion.id));
         }
 
-        // Apply sorting
         filtered.sort((a, b) => {
-            const [sortBy, direction] = sortOption.split('-');
-            const isAsc = direction === 'asc';
-
-            if (sortBy === 'name') {
-                return isAsc
-                    ? a.name.localeCompare(b.name)
-                    : b.name.localeCompare(a.name);
+            switch (sortOption) {
+                case 'name-asc':
+                    return a.name.localeCompare(b.name);
+                case 'name-desc':
+                    return b.name.localeCompare(a.name);
+                case 'completed': {
+                    const aCompletedForCompleted = completedChampionIds.includes(a.id);
+                    const bCompletedForCompleted = completedChampionIds.includes(b.id);
+                    return bCompletedForCompleted === aCompletedForCompleted ? 0 : bCompletedForCompleted ? 1 : -1;
+                }
+                case 'pending': {
+                    const aCompletedForPending = completedChampionIds.includes(a.id);
+                    const bCompletedForPending = completedChampionIds.includes(b.id);
+                    return aCompletedForPending === bCompletedForPending ? 0 : aCompletedForPending ? 1 : -1;
+                }
+                default:
+                    return 0;
             }
-
-            // Add other sort options as needed
-            return 0;
         });
+
 
         return filtered;
     }, [champions, searchTerm, hideCompleted, hidePending, completedChampionIds, sortOption]);
