@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: flex-start;
   box-sizing: border-box;
+  margin-top: 12%;
 }
 
 .achievement-header {

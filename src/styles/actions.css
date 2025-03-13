@@ -8,13 +8,6 @@
   margin: 2.2em 0 2.2em 0;
   outline: none;
 }
-.reset-button {
-  color: #fa5246;
-}
-
-.download-button {
-  color: #2adcf4;
-}
 .action-buttons-container {
   justify-content: end;
   align-items: end;

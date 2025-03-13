@@ -6,7 +6,7 @@ const SignatureBanner: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 1) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
@@ -24,7 +24,7 @@ const SignatureBanner: React.FC = () => {
     <div className={`signature-banner ${isVisible ? 'visible' : 'hidden'}`}>
       <div className="signature-text">
         <div className="made-with">Made with <Heart size={20}/> by </div>
-        <div className="author-name">Stiantha</div>
+        <div className="author-name">Stianha</div>
       </div>
     </div>
   );

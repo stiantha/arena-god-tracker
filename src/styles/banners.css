@@ -1,19 +1,17 @@
 .kofi-banner {
   position: fixed;
   top: 100px;
-  right: 30px;
+  right: 42.5%;
+  left: 42.5%;
   z-index: 100;
   transition: transform 0.3s ease, opacity 1s ease, visibility 1s ease; /* Changed opacity transition to 1s */
   opacity: 1;
-  font-family: 'Satisfy', cursive, sans-serif;
+  font-family: 'Satisfy', cursive;
+
 }
 
-.kofi-banner svg {
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  gap: 10px;
+.banner-text{
+  font-size: 1.1em;
 }
 
 .kofi-banner.visible {
@@ -47,7 +45,17 @@
   font-size: 1.2rem;
   text-align: center;
   min-width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
+
+.banner-content svg {
+  position: relative;
+  top:4px
+}
+
 
 .banner-rope {
   position: absolute;
@@ -70,7 +78,8 @@
 .signature-banner {
   position: fixed;
   top: 15px;
-  right: 75px;
+  right: 42.5%;
+  left: 42.5%;
   z-index: 100;
   transition: opacity 1s ease, visibility 1s ease; /* Added visibility transition */
   opacity: 1;
