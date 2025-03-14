@@ -1,11 +1,10 @@
 import { Coffee } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 
-interface KofiBannerProps {
-  kofiUrl: string;
-}
+const kofiUrl = "https://ko-fi.com/stiantha";
 
-const KofiBanner: React.FC<KofiBannerProps> = ({ kofiUrl }) => {
+
+const KofiBanner: React.FC =  () => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

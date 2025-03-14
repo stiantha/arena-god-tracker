@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ChampionContext } from '../context/ChampionContext';
-import { ChampionContextType } from '../types';
+import { ChampionContextType } from '../utils/types';
 
 export const useChampionContext = (): ChampionContextType => {
     const context = useContext(ChampionContext);

@@ -1,12 +1,8 @@
-import ChampionDashboard from './components/Champions';
-import './App.css';
+import Layout from "./layouts/Layout";
+import "./App.css";
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <ChampionDashboard />
-    </div>
-  );
+  return <Layout />;
 };
 
 export default App;

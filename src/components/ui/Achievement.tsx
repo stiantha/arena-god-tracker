@@ -1,57 +1,56 @@
 import React from "react";
 import Controls from "./Controls";
-import { ScrollText } from "lucide-react";
+import { ScrollText, Users } from "lucide-react";
+import adaptToAllSituations from "../../assets/adapt_to_all_situations.png"; // Import the achievement icon
 
-interface AchievementProps {
-  icon: string;
-  title: string;
-  rank: string;
-  rarity: string | React.ReactNode;
-  description: string;
-  progress: number;
-  total: number;
-  progressPercentage: number;
-}
+const Achievement: React.FC = () => {
+  // Achievement details
+  const achievementDetails = {
+    icon: adaptToAllSituations,
+    title: "Adapt to all situations",
+    rank: "MASTER",
+    rarity: (
+      <>
+        <Users size={15} style={{ marginRight: 5 }} />
+        0.1% of players have this
+      </>
+    ),
+    description: "Place first in Arena games with different champions",
+    progress: 30, // Example progress value
+    total: 60, // Example total value
+    progressPercentage: (30 / 60) * 100, // Calculate percentage dynamically
+  };
 
-const Achievement: React.FC<AchievementProps> = ({
-  icon,
-  title,
-  rank,
-  rarity,
-  description,
-  progress,
-  total,
-  progressPercentage,
-}) => {
   return (
     <div className="achievement-card">
       <div className="achievement-header">
         <div className="achievement-icon">
-          <img src={icon} alt="Achievement Icon" />
+          <img src={achievementDetails.icon} alt="Achievement Icon" />
         </div>
         <div className="achievement-title">
-          <p className="achievement-name">{title}</p>
-          <p className="achievement-rank">{rank}</p>
-          <p className="achievement-rarity">
-            {typeof rarity === "string" ? rarity : rarity}
-          </p>
+          <p className="achievement-name">{achievementDetails.title}</p>
+          <p className="achievement-rank">{achievementDetails.rank}</p>
+          <p className="achievement-rarity">{achievementDetails.rarity}</p>
         </div>
       </div>
 
-      <div className="achievement-description">{description}</div>
+      <div className="achievement-description">
+        {achievementDetails.description}
+      </div>
 
       <div className="achievement-progress-container">
         <div
           className="achievement-progress-bar"
-          style={{ width: `${progressPercentage}%` }}
+          style={{ width: `${achievementDetails.progressPercentage}%` }}
         />
         <span className="achievement-progress-text">
-          {progress} / {total}
+          {achievementDetails.progress} / {achievementDetails.total}
         </span>
       </div>
 
       <div className="achievement-footer">
-        <p><ScrollText size={20}/> Arena God</p>
+        <p>
+          <ScrollText size={20} /> Arena God</p>
         <Controls />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useChampionContext } from "../../hooks/useChampionContext";
-import { SortOption } from "../../types";
+import { SortOption } from "../../utils/types";
 import { ListFilter } from "lucide-react";
 
 const Filter: React.FC = () => {

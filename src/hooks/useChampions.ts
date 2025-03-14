@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useMemo, ChangeEvent } from 'react';
-import { Champion, SortOption, ChampionContextType } from '../types';
+import { Champion, SortOption, ChampionContextType } from '../utils/types';
 import useLocalStorage from './useLocalStorage';
-import championService from '../api';
+import championService from '../utils/api';
 
 export const useChampions = (localStorageKey: string): ChampionContextType => {
     const [champions, setChampions] = useState<Champion[]>([]);

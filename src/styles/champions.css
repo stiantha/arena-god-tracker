@@ -28,11 +28,6 @@
     justify-content: center;
     font-weight: bold;
   }
-
-  .champion-dashboard {
-    position: relative;
-    min-height: 400px;
-  }
   
   .champions-grid {
     margin-top: 2.9em;
@@ -43,5 +38,4 @@
   }
   .champions-grid-wrapper {
     min-height: 500px;
-    position: relative;
   }

@@ -1,3 +1,14 @@
+@media (min-width: 2200px) {
+  div.achievement-card {
+    margin-top: 18em;
+  }
+}
+@media (max-width: 1950px) {
+  div.achievement-card {
+    margin-top: 12%;
+  }
+}
+
 @media (max-width: 1268px) {
   .filter-button,
   .sort-button,
@@ -13,7 +24,7 @@
   .search-container {
     width: 100%;
   }
-  .champion-dashboard {
+  .layout {
     padding-left: 0;
   }
 
