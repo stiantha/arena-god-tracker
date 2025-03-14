@@ -2,6 +2,7 @@ import React from "react";
 import Controls from "./Controls";
 import { ScrollText, Users } from "lucide-react";
 import adaptToAllSituations from "../../assets/adapt_to_all_situations.png"; // Import the achievement icon
+import { useChampionContext } from "../../hooks/useChampionContext";
 
 const Achievement: React.FC = () => {
   // Achievement details
@@ -16,9 +17,9 @@ const Achievement: React.FC = () => {
       </>
     ),
     description: "Place first in Arena games with different champions",
-    progress: 30, // Example progress value
-    total: 60, // Example total value
-    progressPercentage: (30 / 60) * 100, // Calculate percentage dynamically
+    progress: useChampionContext().progress, 
+    total: 60,
+    progressPercentage: useChampionContext().progressPercentage
   };
 
   return (
