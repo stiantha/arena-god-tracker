@@ -24,7 +24,7 @@ const SignatureBanner: React.FC = () => {
     <div className={`signature-banner ${isVisible ? 'visible' : 'hidden'}`}>
       <div className="signature-text">
         <div className="made-with">Made with <Heart size={20}/> by </div>
-        <div className="author-name">Stianha</div>
+        <div className="author-name"></div>
       </div>
     </div>
   );

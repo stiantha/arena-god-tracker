@@ -33,7 +33,7 @@ const KofiBanner: React.FC<KofiBannerProps> = ({ kofiUrl }) => {
         className="kofi-link"
       >
         <div className="banner-content">
-          <div className="banner-text">Tip a coppa <Coffee size={20} /> ? </div>
+          <div className="banner-text">Buy me a coffee <Coffee size={20} /></div>
           <div className="banner-rope left"></div>
           <div className="banner-rope right"></div>
         </div>

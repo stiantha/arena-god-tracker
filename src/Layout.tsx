@@ -5,7 +5,7 @@ import Achievement from "./components/ui/Achievement";
 import Filter from "./components/ui/Filter";
 import ChampionGrid from "./components/ui/ChampionsGrid";
 import KofiBanner from "./components/ui/Ko-fi";
-import SignatureBanner from "./components/ui/Signature";
+/* import SignatureBanner from "./components/ui/Signature"; */
 
 interface LayoutProps {
   achievementIcon: string;
@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({
   return (
     <div className="champion-dashboard">
       <KofiBanner kofiUrl={kofiUrl} />
-      <SignatureBanner />
+     {/*  <SignatureBanner /> */}
       <Achievement
         icon={achievementIcon}
         title={achievementTitle}
