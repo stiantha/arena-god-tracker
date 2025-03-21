@@ -1,5 +1,6 @@
 import React from "react";
 import { useChampionContext } from "../../hooks/useChampionContext";
+import LoadingState from './LoadingState';
 
 const ChampionGrid: React.FC = () => {
   const {
@@ -10,13 +11,7 @@ const ChampionGrid: React.FC = () => {
   } = useChampionContext();
 
   if (isLoading) {
-    return (
-      <div className="loading-skeleton">
-        {[...Array(20)].map((_, index) => (
-          <div key={index} className="champion-card-skeleton"></div>
-        ))}
-      </div>
-    );
+    return <LoadingState />;
   }
 
   return (
@@ -32,7 +27,11 @@ const ChampionGrid: React.FC = () => {
             style={{ visibility: "visible", display: "flex" }}
           >
             <div className="image-container">
-              <img src={champion.image} alt={champion.name} />
+              <img 
+                src={champion.image} 
+                alt={champion.name} 
+                loading="lazy" 
+              />
               {completedChampionIds.includes(champion.id) && (
                 <div className="checkmark-overlay">✓</div>
               )}

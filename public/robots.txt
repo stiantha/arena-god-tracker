@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arena-god.vercel.app/sitemap.xml

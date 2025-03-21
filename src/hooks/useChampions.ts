@@ -1,3 +1,4 @@
+// src/hooks/useChampions.ts
 import { useState, useEffect, useCallback, useMemo, ChangeEvent } from 'react';
 import { Champion, SortOption, ChampionContextType } from '../utils/types';
 import useLocalStorage from './useLocalStorage';
@@ -13,7 +14,7 @@ export const useChampions = (localStorageKey: string): ChampionContextType => {
     const [hideCompleted, setHideCompleted] = useState(false);
     const [hidePending, setHidePending] = useState(false);
     const [sortOption, setSortOption] = useState<SortOption>('name-asc');
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         const fetchChampions = async () => {
