@@ -26,7 +26,7 @@ const ChampionGrid: React.FC = () => {
             onClick={() => toggleChampionCompletion(champion.id)}
             style={{ visibility: "visible", display: "flex" }}
           >
-            <div className="image-container">
+
               <img 
                 src={champion.image} 
                 alt={champion.name} 
@@ -35,7 +35,7 @@ const ChampionGrid: React.FC = () => {
               {completedChampionIds.includes(champion.id) && (
                 <div className="checkmark-overlay">✓</div>
               )}
-            </div>
+
           </div>
         ))}
       </div>
