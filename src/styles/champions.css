@@ -8,6 +8,7 @@
     align-items: center;
     cursor: pointer;
     height: 120px;
+    background-color: black;
   }
   
   .champion-card.completed img {
