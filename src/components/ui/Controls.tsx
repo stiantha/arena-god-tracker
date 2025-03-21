@@ -20,7 +20,7 @@ const Controls: React.FC = () => {
       <button
         className="action-button download-button"
         onClick={downloadProgress}
-        title="Download Progress as Excel"
+        title="Download progress to .xlsx file"
       >
         <Download size={22}/>
       </button>
